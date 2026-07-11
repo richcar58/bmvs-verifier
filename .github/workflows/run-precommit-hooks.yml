@@ -1,0 +1,31 @@
+# .github/workflows/run-precommit-hooks.yml
+# Adapted from the VoteSecure kernel repository's workflow of the same name.
+#
+# CI re-runs the full pre-commit hook suite so that locally bypassed hooks
+# (git commit --no-verify) are still caught authoritatively. The Rust
+# toolchain setup step returns here when the cargo workspace is scaffolded
+# (bootstrap plan Phase 2/3) and the Rust pre-commit hooks are enabled.
+
+name: Run pre-commit Hooks
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  pre-commit:
+    name: Run pre-commit Hooks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Set Up Python
+        uses: actions/setup-python@v6
+
+      - name: Run Pre-Commit Hooks
+        uses: pre-commit/action@v3.0.1

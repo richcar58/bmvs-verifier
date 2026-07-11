@@ -1,0 +1,5 @@
+# Pinned stable toolchain (bootstrap plan decision D4): product and verifier
+# code targets stable Rust, fully pinned for reproducible, certifiable builds.
+[toolchain]
+channel = "1.97.0"
+components = ["rustfmt", "clippy"]

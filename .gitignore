@@ -1,0 +1,14 @@
+# Build output
+/target
+
+# Note: Cargo.lock is deliberately committed once the workspace exists — the
+# lockfile is the reviewable statement of the full dependency closure.
+
+# Editor and OS artifacts
+.DS_Store
+.vscode
+
+# Python tooling (pre-commit helpers)
+venv*
+.venv
+__pycache__/
