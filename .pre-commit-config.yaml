@@ -17,8 +17,12 @@ repos:
 - repo: https://github.com/FreeAndFair/pre-commit-rust
   rev: v1.2.1
   hooks:
+      # The trailing '--' is load-bearing: pre-commit appends the matched
+      # file names to the hook's arguments, and `cargo fmt` rejects file
+      # arguments — after '--' they are forwarded to rustfmt, which accepts
+      # them. (Same pattern as the kernel repository's configuration.)
       - id: fmt
-        args: ['--all', '--manifest-path', 'Cargo.toml']
+        args: ['--all', '--manifest-path', 'Cargo.toml', '--']
       - id: cargo-check
         args: ['--manifest-path', 'Cargo.toml']
       - id: clippy
