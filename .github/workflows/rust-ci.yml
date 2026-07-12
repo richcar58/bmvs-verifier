@@ -17,6 +17,9 @@ jobs:
   rust:
     name: fmt, clippy, test (${{ matrix.os }})
     strategy:
+      # Let both OS legs run to completion — a failure on one is diagnostic
+      # information, not a reason to cancel the other.
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
@@ -38,7 +41,13 @@ jobs:
 
       - name: Verify Committed Fixture
         run: |
-          cargo run -q -p bmvs-verifier -- verify fixtures/mini; code=$?
+          # The step shell runs with errexit, which would kill the script on
+          # the verifier's *designed* non-zero exit before we can capture
+          # it; suspend errexit around the invocation only.
+          set +e
+          cargo run -q -p bmvs-verifier -- verify fixtures/mini
+          code=$?
+          set -e
           # Exit 2 = PARTIAL (proof checks staged for M1) is the expected
           # outcome; 0 becomes expected once proof verification lands.
           test "$code" -eq 2
