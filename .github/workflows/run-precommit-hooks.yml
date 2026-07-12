@@ -24,6 +24,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
+      # rustup 1.28+ does not auto-install the toolchain pinned by
+      # rust-toolchain.toml; without this step the Rust pre-commit hooks
+      # fail with "toolchain is not installed".
+      - name: Install Pinned Toolchain
+        run: rustup toolchain install
+
       - name: Set Up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
 

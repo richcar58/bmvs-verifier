@@ -51,10 +51,24 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
+      - name: Install Pinned Toolchain
+        run: rustup toolchain install
+
+      # Prebuilt static binary, pinned by version and SHA-256 — no
+      # third-party action, no per-run compilation.
+      - name: Install cargo-deny
+        run: |
+          V=0.20.2
+          SHA=9f12ed4c49936e09b48bf862b595cde2fe64fcbd9d74dfacac6131ca824c8d5f
+          curl -sSfL -o cargo-deny.tar.gz \
+            "https://github.com/EmbarkStudios/cargo-deny/releases/download/${V}/cargo-deny-${V}-x86_64-unknown-linux-musl.tar.gz"
+          echo "${SHA}  cargo-deny.tar.gz" | sha256sum -c -
+          tar -xzf cargo-deny.tar.gz --strip-components=1 \
+            "cargo-deny-${V}-x86_64-unknown-linux-musl/cargo-deny"
+          rm cargo-deny.tar.gz
+
       - name: Run cargo-deny
-        uses: EmbarkStudios/cargo-deny-action@bb137d7af7e4fb67e5f82a49c4fce4fad40782fe # v2
-        with:
-          command: check
+        run: ./cargo-deny check
 
   container:
     name: Container Image Build
