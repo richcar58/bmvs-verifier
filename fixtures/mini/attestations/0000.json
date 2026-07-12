@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "election_hash": "56ff63a20feab5e8ac9ad0d69f2a75d65b42344a11ca4109f9b48079464d43a5",
+  "site_id": "site-1",
+  "day": "2026-07-12",
+  "head": "c37db2d8127b72ec7760ce0a370fc19b17969bce7f2ee7299a3cbab5c39c2648",
+  "counts": {
+    "submitted": 4,
+    "cast": 3,
+    "spoiled": 1,
+    "provisional_pending": 0
+  },
+  "tabulator_report_hashes": [
+    "75216bf1c9399e70e4934d38b468a418fc46a7cec5f1407493cb483a1b52e65d"
+  ],
+  "dbb_verifying_key": "0f7dfad109e0d84b1fedbf23263e1f39fb6db198108744b30f092af58d46120e",
+  "signature": "2622b4cdc4d33fb25898fa7609982ae08a1a76d27130c19729df4287ba0c43c1b375c9985854a690b55da1b7ba857009ae206a03151d170d5b4ad92d6cea2009"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1.0",
+  "election_hash": "56ff63a20feab5e8ac9ad0d69f2a75d65b42344a11ca4109f9b48079464d43a5",
+  "subject": "42d4067c4a62a839036eec9012463784892447c863d17672be12a514f008a30b",
+  "decision": "spoiled-by-check",
+  "reason_category": "benaloh-challenge",
+  "signatures": [
+    {
+      "signer": "election-authority",
+      "signature": "b6b0354064042557a1119d6a4faedb3c1191310bb198be25108284964ecf5814fd31ea7195fcc2d7c43eabb19d3c864e4e527f61506fb820835f5ea015e93401"
+    }
+  ]
+}

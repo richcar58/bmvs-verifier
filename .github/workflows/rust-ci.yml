@@ -1,0 +1,45 @@
+# .github/workflows/rust-ci.yml
+# Continuous integration for the verifier workspace: format, lints, build,
+# and tests on pinned stable Rust (selected automatically by
+# rust-toolchain.toml), on Linux and macOS per the bootstrap plan.
+
+name: Rust CI
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  rust:
+    name: fmt, clippy, test (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Install Pinned Toolchain
+        run: rustup show active-toolchain || rustup toolchain install
+
+      - name: Format Check
+        run: cargo fmt --check --all
+
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Tests
+        run: cargo test --workspace
+
+      - name: Verify Committed Fixture
+        run: |
+          cargo run -q -p bmvs-verifier -- verify fixtures/mini; code=$?
+          # Exit 2 = PARTIAL (proof checks staged for M1) is the expected
+          # outcome; 0 becomes expected once proof verification lands.
+          test "$code" -eq 2
+        shell: bash

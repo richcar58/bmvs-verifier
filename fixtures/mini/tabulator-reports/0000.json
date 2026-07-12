@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "election_hash": "56ff63a20feab5e8ac9ad0d69f2a75d65b42344a11ca4109f9b48079464d43a5",
+  "site_id": "site-1",
+  "tab_id": "tab-1",
+  "day": "2026-07-12",
+  "totals": [
+    {
+      "contest_id": "c1",
+      "options": [
+        {
+          "option_id": "A",
+          "count": 2
+        },
+        {
+          "option_id": "B",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "cards_regular": 3,
+  "cards_provisional": 0,
+  "cards_rejected": 0,
+  "tab_verifying_key": "4131c508fdec9ee4de5bba5b769e5345c3102f4b78e4d6fbf6441a1100ad3ffd",
+  "signature": "707f32c713eb74f8ff66a7d0817aabf42c33c4208c289c87625cfbb644e149699d976c0100d07f450cb06bb1bd93882d6fdaee92b89bbee0996430086583d201"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "election_hash": "56ff63a20feab5e8ac9ad0d69f2a75d65b42344a11ca4109f9b48079464d43a5",
+  "input_trackers": [
+    "8d6396631fb91127639c62dee72897c9f07e18f8b33cc4bfce63b659de9f23b7",
+    "5c6efd50829d8b86b0e466bd760286d0778cf2edcd54809d3f541e3c6093cf4b",
+    "1372d49e3e19582a6a82a8c367a47eabd519ce8a2c3ae8b3105090246af86469"
+  ],
+  "input_ciphertexts": "706c616365686f6c6465722d73747269707065642d6369706865727465787473",
+  "mix_rounds": [
+    {
+      "trustee": "trustee-1",
+      "ciphertexts": "706c616365686f6c6465722d6d69782d31",
+      "proof": "706c616365686f6c6465722d74772d70726f6f662d31"
+    },
+    {
+      "trustee": "trustee-2",
+      "ciphertexts": "706c616365686f6c6465722d6d69782d32",
+      "proof": "706c616365686f6c6465722d74772d70726f6f662d32"
+    }
+  ],
+  "partial_decryptions": [
+    {
+      "trustee": "trustee-1",
+      "factors": "706c616365686f6c6465722d666163746f72732d31",
+      "proofs": "706c616365686f6c6465722d63702d70726f6f66732d31"
+    },
+    {
+      "trustee": "trustee-2",
+      "factors": "706c616365686f6c6465722d666163746f72732d32",
+      "proofs": "706c616365686f6c6465722d63702d70726f6f66732d32"
+    }
+  ],
+  "plaintexts": "706c616365686f6c6465722d706c61696e7465787473",
+  "tallies": [
+    {
+      "contest_id": "c1",
+      "options": [
+        {
+          "option_id": "A",
+          "count": 2
+        },
+        {
+          "option_id": "B",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "trustee_signatures": [
+    {
+      "signer": "trustee-1",
+      "signature": "bd34ae302bdfdbeaac4c96aa8bacb173d2e7fbc3828ca0c3059b654e46dbc697e8264106034b30abd05a72491cf75577af92ccf90057bc9f4291babe0554040a"
+    },
+    {
+      "signer": "trustee-2",
+      "signature": "cd5721c9ae378ba5bb6057686a42e0c3650951e6d19d0188401810d9acb46070ba6eb0c91f801f8ad820040f4541a26cb08ece4fdbe1b89d1d58670306584e0e"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "0.1.0",
+  "election_hash": "56ff63a20feab5e8ac9ad0d69f2a75d65b42344a11ca4109f9b48079464d43a5",
+  "manifest": "mini election: contest c1, options A and B",
+  "threshold": 2,
+  "trustees": [
+    {
+      "name": "trustee-1",
+      "verifying_key": "562d79533084c5eb3e97bbef99cf81c85c9c97283164e67dcc54c8c34bd579e8"
+    },
+    {
+      "name": "trustee-2",
+      "verifying_key": "3ae6702e2ac077cbe4a5622508563b2208dc79f6845c411bdc893497ebf97da0"
+    },
+    {
+      "name": "trustee-3",
+      "verifying_key": "aee8e6a709bd9c041303d9d74055a3f1a197072c36ac08d527d52aecadb9460b"
+    }
+  ],
+  "authorities": [
+    {
+      "name": "election-authority",
+      "verifying_key": "330aec22df873d417c4436ebd288f93935d29d7d4290704f4acd74b38379c986"
+    }
+  ],
+  "election_public_key": "706c616365686f6c6465722d656c656374696f6e2d7075626c69632d6b6579",
+  "instance": {
+    "schema_version": "0.1.0",
+    "product": "bmvs",
+    "mode": "bmvs",
+    "crypto_suite": "ristretto255-ed25519-sha3",
+    "features": [
+      "provisional-ballots",
+      "early-voting"
+    ],
+    "anonymity_floor": 1
+  },
+  "signatures": [
+    {
+      "signer": "trustee-1",
+      "signature": "82c4d960760249cbed695865601ae98b6ca3abcfa0c2459dbf80dcac3bc33570a608517fbfaccb526253098d0fbf5f6950c042aeea53f5a343da47928dcd1300"
+    },
+    {
+      "signer": "trustee-2",
+      "signature": "584e04f2b048bc2adf1222b00bdcd20fcd8b3abf49fb22418f2394181335bf79631a645bf556f44982c39c4f2efa36baa2bb001fbc6e329dd25abcaba207590c"
+    },
+    {
+      "signer": "trustee-3",
+      "signature": "05cd5858e48b45decc0b4763bf557b01480e5ad595ad4a7b74e4974937aaa05592104907d7b2175769bb03d62dea2f76c9d3060f58c7e77e3ada74c08d985d08"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[package]
+name = "bmvs-verifier"
+description = "Command-line verifier for published BMVS election records"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+bmvs-artifacts = { workspace = true }
+verifier-core = { workspace = true }
+serde_json = { workspace = true }
+
+[lints]
+workspace = true

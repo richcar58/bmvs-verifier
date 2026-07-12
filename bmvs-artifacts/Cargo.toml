@@ -1,0 +1,19 @@
+[package]
+name = "bmvs-artifacts"
+description = "Published election artifact schema for BMVS elections (kernel-independent)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+# This crate is deliberately kernel-free: it defines the schema (types, JSON
+# encoding, canonical signing/hashing inputs) that both the BMVS product and
+# any independent verifier implementation build against.
+[dependencies]
+serde = { workspace = true }
+
+[dev-dependencies]
+serde_json = { workspace = true }
+
+[lints]
+workspace = true

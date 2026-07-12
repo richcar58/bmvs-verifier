@@ -14,6 +14,13 @@ repos:
         stages: [commit-msg]
         additional_dependencies: ['@commitlint/config-conventional']
 
-# The Rust hooks (fmt, cargo-check, clippy) used by the VoteSecure kernel
-# repository are added when the cargo workspace is scaffolded (bootstrap plan
-# Phase 2/3); until a Cargo.toml exists here they would fail on every run.
+- repo: https://github.com/FreeAndFair/pre-commit-rust
+  rev: v1.2.1
+  hooks:
+      - id: fmt
+        args: ['--all', '--manifest-path', 'Cargo.toml']
+      - id: cargo-check
+        args: ['--manifest-path', 'Cargo.toml']
+      - id: clippy
+        args: ['--manifest-path', 'Cargo.toml', '--', '-D', 'warnings']
+        exclude: \.md

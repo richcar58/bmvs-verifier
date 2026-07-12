@@ -1,0 +1,45 @@
+# BMVS verifier workspace: the independent public verifier and the owner of
+# the published election artifact schema (bootstrap plan, Phase 2).
+#
+# Dependency direction is load-bearing (code-organization document, Option D):
+# the BMVS product depends on `bmvs-artifacts` from this repository; this
+# repository never depends on the product. The only external trust surface is
+# the VoteSecure kernel, consumed by pinned tag (decision D3).
+
+[workspace]
+members = ["bmvs-artifacts", "verifier-core", "bmvs-verifier"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/richcar58/bmvs-verifier"
+
+[workspace.dependencies]
+# Internal crates
+bmvs-artifacts = { path = "bmvs-artifacts" }
+verifier-core = { path = "verifier-core" }
+
+# The VoteSecure cryptographic kernel, pinned by consumption tag (D3/D5).
+# kernel-v1.3-fork.2 is the first stable-compatible tag (work item K2).
+cryptography = { git = "https://github.com/richcar58/VoteSecure.git", tag = "kernel-v1.3-fork.2" }
+
+# Third-party (kept deliberately minimal; every addition is a reviewed event)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+
+[workspace.lints.rust]
+missing_docs = "warn"
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+print_stdout = "warn"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"

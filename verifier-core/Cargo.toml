@@ -1,0 +1,22 @@
+[package]
+name = "verifier-core"
+description = "Verification checks for published BMVS election records"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+bmvs-artifacts = { workspace = true }
+serde = { workspace = true }
+# The VoteSecure kernel's verification surface: hashing, signatures, and
+# (from milestone M1) proof verification.
+cryptography = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+# Same major/minor as the kernel's own sha3 dependency; needed for the
+# Digest trait methods on the kernel's Hasher256 type alias.
+sha3 = "0.10"
+
+[lints]
+workspace = true
