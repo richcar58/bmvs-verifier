@@ -43,3 +43,37 @@ jobs:
           # outcome; 0 becomes expected once proof verification lands.
           test "$code" -eq 2
         shell: bash
+
+  deny:
+    name: cargo-deny (advisories, bans, licenses, sources)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Run cargo-deny
+        uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          command: check
+
+  container:
+    name: Container Image Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      # Build only — publishing images is a release act performed by Rich
+      # (decision D9); CI proves the Dockerfile stays buildable and the
+      # image actually verifies a record.
+      - name: Build Image
+        run: docker build -t bmvs-verifier:ci .
+
+      - name: Smoke-Test Image Against the Committed Fixture
+        run: |
+          set +e
+          docker run --rm -v "$PWD/fixtures/mini:/record:ro" bmvs-verifier:ci verify /record
+          code=$?
+          set -e
+          # Exit 2 = PARTIAL, the designed outcome until M1.
+          test "$code" -eq 2

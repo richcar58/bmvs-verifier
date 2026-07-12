@@ -18,12 +18,13 @@ repository = "https://github.com/richcar58/bmvs-verifier"
 
 [workspace.dependencies]
 # Internal crates
-bmvs-artifacts = { path = "bmvs-artifacts" }
-verifier-core = { path = "verifier-core" }
+bmvs-artifacts = { path = "bmvs-artifacts", version = "0.1.0" }
+verifier-core = { path = "verifier-core", version = "0.1.0" }
 
 # The VoteSecure cryptographic kernel, pinned by consumption tag (D3/D5).
-# kernel-v1.3-fork.2 is the first stable-compatible tag (work item K2).
-cryptography = { git = "https://github.com/richcar58/VoteSecure.git", tag = "kernel-v1.3-fork.2" }
+# kernel-v1.3-fork.2 is the first stable-compatible tag (work item K2); the
+# version pin matches the crate version at that tag.
+cryptography = { git = "https://github.com/richcar58/VoteSecure.git", tag = "kernel-v1.3-fork.2", version = "0.2.1" }
 
 # Third-party (kept deliberately minimal; every addition is a reviewed event)
 serde = { version = "1.0", features = ["derive"] }

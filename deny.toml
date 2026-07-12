@@ -30,6 +30,9 @@ ignore = false
 [bans]
 multiple-versions = "warn"
 wildcards = "deny"
+# Workspace-internal path dependencies carry explicit versions, but cargo
+# still reports path deps as wildcards in some layouts; allow that one case.
+allow-wildcard-paths = true
 
 [sources]
 unknown-registry = "deny"
