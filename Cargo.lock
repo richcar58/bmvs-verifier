@@ -25,7 +25,7 @@ dependencies = [
 
 [[package]]
 name = "bmvs-artifacts"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "serde",
  "serde_json",
@@ -33,7 +33,7 @@ dependencies = [
 
 [[package]]
 name = "bmvs-verifier"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "bmvs-artifacts",
  "serde_json",
@@ -131,7 +131,7 @@ dependencies = [
 [[package]]
 name = "cryptography"
 version = "0.2.1"
-source = "git+https://github.com/richcar58/VoteSecure.git?tag=kernel-v1.3-fork.2#1d84f5670e410346d4e609b860462c03d5d04398"
+source = "git+https://github.com/richcar58/VoteSecure.git?tag=kernel-v1.4-fork.1#48b36aa2f026610582824d4175bcb05b1ee50b85"
 dependencies = [
  "cfg-if",
  "curve25519-dalek",
@@ -180,7 +180,7 @@ dependencies = [
 [[package]]
 name = "custom_warning_macro"
 version = "0.1.0"
-source = "git+https://github.com/richcar58/VoteSecure.git?tag=kernel-v1.3-fork.2#1d84f5670e410346d4e609b860462c03d5d04398"
+source = "git+https://github.com/richcar58/VoteSecure.git?tag=kernel-v1.4-fork.1#48b36aa2f026610582824d4175bcb05b1ee50b85"
 dependencies = [
  "cfg-if",
  "proc-macro2",
@@ -663,7 +663,7 @@ checksum = "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
 
 [[package]]
 name = "verifier-core"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "bmvs-artifacts",
  "cryptography",
@@ -682,7 +682,7 @@ checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 [[package]]
 name = "vser_derive"
 version = "0.1.0"
-source = "git+https://github.com/richcar58/VoteSecure.git?tag=kernel-v1.3-fork.2#1d84f5670e410346d4e609b860462c03d5d04398"
+source = "git+https://github.com/richcar58/VoteSecure.git?tag=kernel-v1.4-fork.1#48b36aa2f026610582824d4175bcb05b1ee50b85"
 dependencies = [
  "proc-macro2",
  "quote",

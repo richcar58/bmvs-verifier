@@ -28,7 +28,10 @@ can clone, audit, and build the verifier alone, with the minimum possible trust 
 
 The only external dependency is the verification surface of the
 [VoteSecure](https://github.com/FreeAndFair/VoteSecure) cryptographic kernel, consumed by pinned
-git tag (`kernel-v1.3-fork.2`, the first stable-compatible tag).
+git tag (`kernel-v1.4-fork.1`, corresponding to upstream VoteSecure v1.4). This pin is kept in
+lockstep with the one in the product repository: Cargo keys git sources by URL *including* the
+tag, so divergent pins would place two incompatible copies of an identical crate in that
+workspace's dependency graph.
 
 ## Try it
 

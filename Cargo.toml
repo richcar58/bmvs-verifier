@@ -11,20 +11,26 @@ members = ["bmvs-artifacts", "verifier-core", "bmvs-verifier"]
 resolver = "2"
 
 [workspace.package]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "Apache-2.0"
 repository = "https://github.com/richcar58/bmvs-verifier"
 
 [workspace.dependencies]
 # Internal crates
-bmvs-artifacts = { path = "bmvs-artifacts", version = "0.1.0" }
-verifier-core = { path = "verifier-core", version = "0.1.0" }
+bmvs-artifacts = { path = "bmvs-artifacts", version = "0.1.1" }
+verifier-core = { path = "verifier-core", version = "0.1.1" }
 
 # The VoteSecure cryptographic kernel, pinned by consumption tag (D3/D5).
-# kernel-v1.3-fork.2 is the first stable-compatible tag (work item K2); the
-# version pin matches the crate version at that tag.
-cryptography = { git = "https://github.com/richcar58/VoteSecure.git", tag = "kernel-v1.3-fork.2", version = "0.2.1" }
+# kernel-v1.4-fork.1 corresponds to upstream VoteSecure v1.4 (2026-07-30);
+# the version pin matches the crate version at that tag. The `cryptography`
+# crate is byte-identical to the one at the previous pin (kernel-v1.3-fork.2)
+# — the whole v1.4 delta lands in the protocol library, which this repository
+# does not consume. The re-pin exists so that the product workspace, which
+# consumes both this repository and the kernel, resolves a *single* copy of
+# `cryptography`: Cargo keys git sources by URL including the tag, so a
+# mismatched pin would yield two incompatible copies of an identical crate.
+cryptography = { git = "https://github.com/richcar58/VoteSecure.git", tag = "kernel-v1.4-fork.1", version = "0.2.1" }
 
 # Third-party (kept deliberately minimal; every addition is a reviewed event)
 serde = { version = "1.0", features = ["derive"] }
