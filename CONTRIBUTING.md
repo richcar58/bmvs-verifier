@@ -47,5 +47,7 @@ Rust code in this repository targets **pinned stable Rust** (see `rust-toolchain
 ## Context
 
 This repository is part of the BMVS (Ballot Marking Voting System) three-repository organization.
-The governing plan is `docs/onsite-e2ev-bootstrap-plan.md` in the VoteSecure fork (migrating to
-the `bmvs` product repository per decision D7).
+The governing plan is `docs/onsite-e2ev-bootstrap-plan.md` in the
+[`bmvs` product repository](https://github.com/richcar58/bmvs), which per decision D7 holds all
+product documentation. The product depends on this repository's `bmvs-artifacts` schema crate;
+this repository never depends on the product.

@@ -2,9 +2,9 @@
 # Adapted from the VoteSecure kernel repository's workflow of the same name.
 #
 # CI re-runs the full pre-commit hook suite so that locally bypassed hooks
-# (git commit --no-verify) are still caught authoritatively. The Rust
-# toolchain setup step returns here when the cargo workspace is scaffolded
-# (bootstrap plan Phase 2/3) and the Rust pre-commit hooks are enabled.
+# (git commit --no-verify) are still caught authoritatively. The suite
+# includes the Rust hooks (fmt, cargo check, clippy -D warnings), which is
+# why the pinned toolchain is installed first.
 
 name: Run pre-commit Hooks
 

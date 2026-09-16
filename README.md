@@ -1,6 +1,6 @@
 # bmvs-verifier
 
-The **independent public verifier** for [BMVS](https://github.com/richcar58/bmvs-verifier)
+The **independent public verifier** for [BMVS](https://github.com/richcar58/bmvs)
 (Ballot Marking Voting System) elections, and the
 owner of the **published election artifact schema**.
 
